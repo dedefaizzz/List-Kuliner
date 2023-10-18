@@ -5,6 +5,6 @@ import 'package:flutter/material.dart';
 const textHeader1 = TextStyle(fontSize: 25, fontWeight: FontWeight.bold);
 const textHeader2 = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
-const headerBackColor = Color.fromARGB(255, 0, 102, 204);
+const headerBackColor = Color.fromARGB(255, 0, 204, 102);
 const pageBgColor = Color.fromARGB(255, 0, 255, 255);
-const iconColor = Color.fromRGBO(0, 76, 153, 1);
+const iconColor = Color.fromRGBO(51, 255, 153, 1);
