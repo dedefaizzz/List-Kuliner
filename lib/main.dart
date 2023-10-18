@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:list_kuliner/home_page.dart';
+import 'package:list_kuliner/styles.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,10 +11,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        body: SafeArea(
+          child: Scaffold(
+            backgroundColor: pageBgColor,
+            appBar: AppBar(
+              backgroundColor: headerBackColor,
+              title: const Text(
+                "Kuliner Nusantara",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              centerTitle: true,
+            ),
+            body: const HomePage(),
+          ),
         ),
       ),
     );
