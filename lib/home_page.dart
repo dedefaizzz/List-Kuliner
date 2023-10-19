@@ -2,6 +2,7 @@
 // sehingga membuat kode jadi lebih mudah dibaca & dikelola
 
 import 'package:flutter/material.dart';
+import 'package:list_kuliner/list_item.dart';
 import 'package:list_kuliner/styles.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.all(10),
       children: [
+        ListItem(),
         const SizedBox(height: 20),
         const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Icon(Icons.list_alt_sharp, size: 30),
