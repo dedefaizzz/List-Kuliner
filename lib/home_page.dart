@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: listMakanan.length,
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(15),
       itemBuilder: (context, index) {
         return ListItem(
           makanan: listMakanan[index],

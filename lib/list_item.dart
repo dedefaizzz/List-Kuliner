@@ -12,6 +12,13 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: decoration(),
+      height: 100,
+      margin: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 15,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -44,6 +51,20 @@ class ListItem extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  BoxDecoration decoration() {
+    return BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      boxShadow: [
+        BoxShadow(
+          color: Color.fromRGBO(51, 255, 153, 1),
+          offset: Offset(1.0, 2.0),
+          blurRadius: 6.0,
+        ),
+      ],
     );
   }
 }
