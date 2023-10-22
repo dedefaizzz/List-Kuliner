@@ -27,18 +27,20 @@ class ListItem extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                makanan.nama,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  makanan.nama,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              deskripsiTeks(),
-            ],
+                deskripsiTeks(),
+              ],
+            ),
           ),
           SizedBox(
             width: 10,
@@ -51,7 +53,6 @@ class ListItem extends StatelessWidget {
 
   Row icon() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Icon(
           Icons.food_bank_rounded,
@@ -77,12 +78,14 @@ class ListItem extends StatelessWidget {
 
   Column deskripsiTeks() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           makanan.deskripsi,
           style: TextStyle(
             fontWeight: FontWeight.w500,
           ),
+          overflow: TextOverflow.ellipsis,
         ),
         Text(
           makanan.harga,
