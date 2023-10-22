@@ -29,6 +29,7 @@ class ListItem extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -83,14 +84,17 @@ class ListItem extends StatelessWidget {
         Text(
           makanan.deskripsi,
           style: TextStyle(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.normal,
           ),
           overflow: TextOverflow.ellipsis,
+        ),
+        SizedBox(
+          height: 3,
         ),
         Text(
           makanan.harga,
           style: TextStyle(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],
