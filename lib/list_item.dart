@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:list_kuliner/makanan.dart';
+import 'package:list_kuliner/styles.dart';
 
 class ListItem extends StatelessWidget {
   final Makanan makanan;
@@ -12,22 +13,17 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: decoration(),
+      decoration: dekorasi(),
       height: 100,
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.only(bottom: 15),
       padding: EdgeInsets.symmetric(
         horizontal: 15,
-        vertical: 15,
+        vertical: 10,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // widget untuk menampilkan gambar lokal
-          Image.asset(
-            makanan.gambar,
-            height: 75,
-            width: 75,
-          ),
+          gambar(),
           SizedBox(
             width: 10,
           ),
@@ -41,28 +37,72 @@ class ListItem extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                makanan.deskripsi,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              deskripsiTeks(),
             ],
-          )
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          icon(),
         ],
       ),
     );
   }
 
-  BoxDecoration decoration() {
+  Row icon() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Icon(
+          Icons.food_bank_rounded,
+          color: iconColor,
+          size: 30,
+        ),
+      ],
+    );
+  }
+
+  ClipRRect gambar() {
+    return ClipRRect(
+      // widget untuk menampilkan gambar lokal
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      child: Image.asset(
+        makanan.gambar,
+        height: 75,
+        width: 75,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  Column deskripsiTeks() {
+    return Column(
+      children: [
+        Text(
+          makanan.deskripsi,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        Text(
+          makanan.harga,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  BoxDecoration dekorasi() {
     return BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.all(Radius.circular(10)),
       boxShadow: [
         BoxShadow(
-          color: Color.fromRGBO(51, 255, 153, 1),
-          offset: Offset(1.0, 2.0),
-          blurRadius: 6.0,
+          color: iconColor,
+          offset: Offset(1.0, 1.0),
+          blurRadius: 4.0,
         ),
       ],
     );
