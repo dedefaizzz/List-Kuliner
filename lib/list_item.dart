@@ -2,6 +2,7 @@
 // turunan dari stateless widget
 
 import 'package:flutter/material.dart';
+import 'package:list_kuliner/detail_page.dart';
 import 'package:list_kuliner/makanan.dart';
 import 'package:list_kuliner/styles.dart';
 
@@ -12,42 +13,50 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: dekorasi(),
-      height: 100,
-      margin: EdgeInsets.only(bottom: 15),
-      padding: EdgeInsets.symmetric(
-        horizontal: 15,
-        vertical: 10,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          gambar(),
-          SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  makanan.nama,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                deskripsiTeks(),
-              ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailPage(makanan: makanan)));
+      },
+      child: Container(
+        decoration: dekorasi(),
+        height: 100,
+        margin: EdgeInsets.only(bottom: 15),
+        padding: EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 10,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            gambar(),
+            SizedBox(
+              width: 10,
             ),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          icon(),
-        ],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    makanan.nama,
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  deskripsiTeks(),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            icon(),
+          ],
+        ),
       ),
     );
   }
