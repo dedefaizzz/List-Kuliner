@@ -23,7 +23,7 @@ class DetailPage extends StatelessWidget {
                     scale: 0.5,
                   ),
                   Row(
-                    children: [ButtonBack()],
+                    children: [ButtonBack(), ButtonLike()],
                   )
                 ],
               )
@@ -67,16 +67,20 @@ class ButtonLike extends StatefulWidget {
 }
 
 class _ButtonLike extends State<ButtonLike> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: pageBgColor,
       child: IconButton(
         onPressed: () {
-          Navigator.pop(context);
+          setState(() {
+            isSelected = !isSelected;
+          });
         },
         icon: Icon(
-          Icons.arrow_back_rounded,
+          isSelected ? Icons.favorite : Icons.favorite_outline,
           color: iconColor,
         ),
       ),
