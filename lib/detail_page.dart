@@ -1,6 +1,7 @@
 // tampilan halaman detail kuliner
 import 'package:flutter/material.dart';
 import 'package:list_kuliner/makanan.dart';
+import 'package:list_kuliner/styles.dart';
 
 class DetailPage extends StatelessWidget {
   final Makanan makanan;
@@ -8,35 +9,77 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Image.asset(
-          makanan.gambar,
-          scale: 0.5,
-        ),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CircleAvatar(
-                  backgroundColor: Color.fromRGBO(51, 255, 153, 1),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: pageBgColor,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Stack(
+                children: [
+                  Image.asset(
+                    makanan.gambar,
+                    scale: 0.5,
                   ),
-                ),
-              ],
-            ),
+                  Row(
+                    children: [ButtonBack()],
+                  )
+                ],
+              )
+            ],
           ),
         ),
-      ],
+      ),
+    );
+  }
+}
+
+class ButtonBack extends StatelessWidget {
+  const ButtonBack({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: pageBgColor,
+      child: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: iconColor,
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonLike extends StatefulWidget {
+  const ButtonLike({
+    super.key,
+  });
+
+  @override
+  State<StatefulWidget> createState() => _ButtonLike();
+}
+
+class _ButtonLike extends State<ButtonLike> {
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: pageBgColor,
+      child: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: iconColor,
+        ),
+      ),
     );
   }
 }
