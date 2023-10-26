@@ -68,15 +68,35 @@ class DetailPage extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text(
                   makanan.detail,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
+              listGambarLain(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  SizedBox listGambarLain() {
+    return SizedBox(
+      height: 150,
+      child: ListView.builder(
+        itemCount: makanan.gambarlain.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(makanan.gambarlain[index])),
+          );
+        },
       ),
     );
   }
@@ -88,9 +108,12 @@ class DetailPage extends StatelessWidget {
           icon,
           color: iconColor,
         ),
+        SizedBox(
+          height: 5,
+        ),
         Text(
           teks,
-          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
       ],
     );
