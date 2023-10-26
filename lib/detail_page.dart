@@ -92,7 +92,8 @@ class DetailPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(right: 10),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      width: 110,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
