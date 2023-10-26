@@ -90,14 +90,21 @@ class DetailPage extends StatelessWidget {
                   itemCount: makanan.bahan.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Image.asset(
-                          makanan.bahan[index].values.first,
-                          width: 52,
-                        ),
-                        Text(makanan.bahan[index].keys.first),
-                      ],
+                    return Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            makanan.bahan[index].values.first,
+                            width: 52,
+                          ),
+                          Text(makanan.bahan[index].keys.first),
+                        ],
+                      ),
                     );
                   },
                 ),
