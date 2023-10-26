@@ -22,15 +22,77 @@ class DetailPage extends StatelessWidget {
                     makanan.gambar,
                     scale: 0.5,
                   ),
-                  Row(
-                    children: [ButtonBack(), ButtonLike()],
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [ButtonBack(), ButtonLike()],
+                    ),
                   )
                 ],
-              )
+              ),
+              Container(
+                color: headerBackColor,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  makanan.nama,
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  attributesIcon(
+                    Icons.access_time_filled,
+                    makanan.waktubuka,
+                  ),
+                  attributesIcon(
+                    Icons.local_fire_department_rounded,
+                    makanan.kalori,
+                  ),
+                  attributesIcon(
+                    Icons.monetization_on,
+                    makanan.harga,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  makanan.detail,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Column attributesIcon(IconData icon, String teks) {
+    return Column(
+      children: [
+        Icon(
+          icon,
+          color: iconColor,
+        ),
+        Text(
+          teks,
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
