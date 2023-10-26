@@ -76,6 +76,32 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
               listGambarLain(),
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  "Bahan Racikan",
+                  style: textHeader1,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  itemCount: makanan.bahan.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Image.asset(
+                          makanan.bahan[index].values.first,
+                          width: 52,
+                        ),
+                        Text(makanan.bahan[index].keys.first),
+                      ],
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
